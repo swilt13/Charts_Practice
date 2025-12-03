@@ -223,10 +223,14 @@ def create_app(df: pd.DataFrame) -> Dash:
     return app
 
 
+# Load data and create app for deployment
+df = load_data(CSV_PATH)
+app = create_app(df)
+server = app.server  # Expose Flask server for gunicorn
+
+
 def run():
     """Load data and run the Dash app."""
-    df = load_data(CSV_PATH)
-    app = create_app(df)
     app.run(debug=True, host="127.0.0.1", port=8053)
 
 
