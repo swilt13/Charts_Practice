@@ -206,7 +206,11 @@ def create_app(df: pd.DataFrame) -> Dash:
                 filtered_df = filtered_df[filtered_df[param_col] == param_value]
 
         # Build hover data list from valid columns
-        hover_data = [col for col in hover_cols if col in filtered_df.columns] if hover_cols else []
+        # Always include 'Name' by default (if present) and then any user-selected columns
+        default_hover = ["Name"] if "Name" in filtered_df.columns else []
+        selected_hover = [col for col in (hover_cols or []) if col in filtered_df.columns and col != "Name"]
+        hover_list = default_hover + selected_hover
+        hover_data = hover_list if hover_list else False
 
         fig = px.scatter(
             filtered_df,
