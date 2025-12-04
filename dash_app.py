@@ -8,7 +8,7 @@ import plotly.express as px
 import dash_bootstrap_components as dbc
 
 
-CSV_PATH = Path("minor_league_advanced.csv")
+CSV_PATH = Path("minor_league_hitters_min40PA.csv")
 
 
 def load_data(path: Path) -> pd.DataFrame:
