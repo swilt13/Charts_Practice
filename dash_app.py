@@ -27,8 +27,19 @@ def create_app(df: pd.DataFrame) -> Dash:
     app = Dash(__name__, external_stylesheets=[dbc.themes.BOOTSTRAP])
 
     app.layout = dbc.Container(
+                # layout with title, instructions, dropdowns, and graph
         [
-            html.H2("2025 Minor League Interactive Scatter Plot"),
+            html.H2("2025 Minor League Hitting Interactive Scatter Plot"),
+            html.H4("This app allows you to create scatter plots from minor league hitting data."),
+            # create list of intrustions
+            html.Ul(
+                [
+                    html.Li("Select X and Y axes from the dropdowns."),
+                    html.Li("Optionally select color and size dimensions."),
+                    html.Li("Filter data by team or parameter values."),
+                    html.Li("Select additional columns to display on hover."),
+                ]
+            ),
             dbc.Row(
                 [
                     dbc.Col(
