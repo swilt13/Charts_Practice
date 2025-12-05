@@ -29,7 +29,7 @@ def create_app(df: pd.DataFrame) -> Dash:
     app.layout = dbc.Container(
                 # layout with title, instructions, dropdowns, and graph
         [
-            html.H2("2025 Minor League Hitting Interactive Scatter Plot"),
+            html.H2("2025 Minor League Hitting - Interactive Scatter Plot"),
             html.H4("This app allows you to create scatter plots from minor league hitting data."),
             # create list of intrustions
             html.Ul(
