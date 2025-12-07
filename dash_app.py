@@ -118,7 +118,7 @@ def create_app(df: pd.DataFrame) -> Dash:
                 [
                     dbc.Col(
                         [
-                            html.Label("New: Filter by Player(s) (optional)"),
+                            html.Label("Filter by Player(s) (optional)"),
                             dcc.Dropdown(
                                 id="player-filter",
                                 options=[{"label": p, "value": p} for p in players],
